@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
 
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Setup Node.js and cache pnpm
-        uses: amondnet/vercel-action@v25
+        uses: actions/setup-node@v3
         with:
           node-version: "20"
           cache: "pnpm" #Cache pnpm dependencies
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Vercel Preview Deploy
-        uses: vercel/vercel-action@v2
+        uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
@@ -60,7 +60,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Vercel Production Deploy
-        uses: vercel/vercel-action@v2
+        uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
