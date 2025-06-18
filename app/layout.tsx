@@ -22,6 +22,8 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/android-chrome-512x512.png" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Bitcoin Dashboard" />
+        <meta name="twitter:description" content="A dashboard for tracking Bitcoin metrics and analytics." />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
