@@ -39,6 +39,7 @@ jobs:
   deploy-preview:
     needs: build
     runs-on: ubuntu-latest
+    environment: Preview
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout repository
@@ -56,6 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: Production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
