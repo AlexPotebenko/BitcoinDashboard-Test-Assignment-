@@ -11,28 +11,48 @@ on:
       - dev
 
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Install pnpm
         run: npm install -g pnpm
-
       - name: Setup Node.js and cache pnpm
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-          cache: "pnpm" #Cache pnpm dependencies
-
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
-
       - name: Run linter
         run: pnpm lint
+      - name: Run unit tests
+        run: pnpm test
+      - name: Start Next.js app
+        run: pnpm dev &
+        env:
+          NODE_ENV: development
+      - name: Wait for Next.js to be ready
+        run: npx wait-on http://localhost:3000
+      - name: Run Cypress E2E tests
+        run: pnpx cypress run
 
+  build:
+    runs-on: ubuntu-latest
+    needs: checks
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Setup Node.js and cache pnpm
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
       - name: Build project
         run: pnpm build
 
