@@ -46,9 +46,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Check Vercel secrets presence
         run: |
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then echo "VERCEL_TOKEN is missing"; else echo "VERCEL_TOKEN is set"; fi
-          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then echo "VERCEL_ORG_ID is missing"; else echo "VERCEL_ORG_ID is set"; fi
-          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then echo "VERCEL_PROJECT_ID is missing"; else echo "VERCEL_PROJECT_ID is set"; fi
+          missing=0
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then echo "❌ VERCEL_TOKEN is missing"; missing=1; else echo "✅ VERCEL_TOKEN is set"; fi
+          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then echo "❌ VERCEL_ORG_ID is missing"; missing=1; else echo "✅ VERCEL_ORG_ID is set"; fi
+          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then echo "❌ VERCEL_PROJECT_ID is missing"; missing=1; else echo "✅ VERCEL_PROJECT_ID is set"; fi
+          if [ "$missing" -eq 1 ]; then exit 1; fi
       - name: Vercel Preview Deploy
         uses: amondnet/vercel-action@v25.2.0
         with:
@@ -68,9 +70,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Check Vercel secrets presence
         run: |
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then echo "VERCEL_TOKEN is missing"; else echo "VERCEL_TOKEN is set"; fi
-          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then echo "VERCEL_ORG_ID is missing"; else echo "VERCEL_ORG_ID is set"; fi
-          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then echo "VERCEL_PROJECT_ID is missing"; else echo "VERCEL_PROJECT_ID is set"; fi
+          missing=0
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then echo "❌ VERCEL_TOKEN is missing"; missing=1; else echo "✅ VERCEL_TOKEN is set"; fi
+          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then echo "❌ VERCEL_ORG_ID is missing"; missing=1; else echo "✅ VERCEL_ORG_ID is set"; fi
+          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then echo "❌ VERCEL_PROJECT_ID is missing"; missing=1; else echo "✅ VERCEL_PROJECT_ID is set"; fi
+          if [ "$missing" -eq 1 ]; then exit 1; fi
       - name: Vercel Production Deploy
         uses: amondnet/vercel-action@v25.2.0
         with:
