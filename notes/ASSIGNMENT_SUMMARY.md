@@ -22,9 +22,11 @@ This project is a Next.js dashboard called "Bitcoin Frenzy". It features a four-
     - When making a deal (buy/sell), a dialog appears with a deal data form
     - Deal data form fields are pre-populated with values from the user's dealing settings
   - **User Cabinet:**
-    - Dedicated page for user personalization data
-    - Displays user profile information (e.g., name, email, avatar)
-    - Allows editing of personal details and viewing account-related actions
+    - Dedicated page for user personalization and account management
+    - View and edit user profile information (name, email, avatar, etc.)
+    - View account-related actions and login history (recent logins, device/browser info)
+    - Check account status (e.g., free or premium plan, which can affect deal speed)
+    - Manage settings for notifications and preferences
 - **State Management:**
   - Centralized Redux Toolkit store for balances, price, and history
   - All actions update state and append to history

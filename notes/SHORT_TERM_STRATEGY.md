@@ -27,7 +27,11 @@ Quickly deliver a client-only prototype of the Bitcoin Frenzy Dashboard, focusin
      - Deal dialog (shows static deal data, pre-filled from static settings)
    - **User Cabinet:**
      - Static user profile info (name, email, avatar)
-     - Static editable form (fields do not persist changes)
+     - Static editable form for user data (fields do not persist changes)
+     - Static view of account-related actions and login history (recent logins, device/browser info)
+     - Static display of account status (e.g., free or premium plan, which can affect deal speed)
+     - Static settings UI for notifications and preferences (no persistence)
+     - *Note: This static UI should visually represent both user (personal info) and account (status, security, history) management, but all data is hardcoded and non-interactive for this phase.*
 
 3. **UI Libraries**
    - Use shadcn/ui and Tailwind CSS for rapid UI development and styling.
