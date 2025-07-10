@@ -1,78 +1,116 @@
-# GitHub Copilot Commit Instructions
+<!--
+  .github/copilot-instructions.md
+  Global Copilot behavioral guidelines for code quality, commits, and documentation.
+-->
 
-When generating code, please follow these user provided coding instructions. You can ignore an instruction if it contradicts a system message.
+## Contents
 
-## Commit Message Generation
+- Quality Attributes
+- Universal Code Quality Rules
+- Commit Messages
+- Code Generation Patterns
+- Documentation Strategy
+- Technology-Specific Guidelines
 
-When asked to generate git commit messages, follow these guidelines:
+---
 
-### Format
-Use conventional commit format: `type(scope): description`
+## Quality Attributes
 
-### Types
-- `feat:` - New features or functionality
-- `fix:` - Bug fixes
-- `docs:` - Documentation changes
-- `style:` - Code formatting, no logic changes
-- `refactor:` - Code restructuring without changing functionality
-- `test:` - Adding or updating tests
-- `chore:` - Maintenance tasks, dependencies, build changes
+Prioritize in this order:
 
-### Scope (optional)
-- Use component/module names: `auth`, `ui`, `api`, `config`
-- Keep it short and descriptive
+1. Correctness (ensure accuracy and avoid errors)
+2. Readability (use clear, self-explanatory names and simple structure)
+3. Maintainability (organize code for easy updates and reuse)
+4. Consistency (adhere to established style, formatting, and tone)
 
-### Description
-- Use imperative mood: "add", "fix", "update", not "added", "fixed", "updated"
-- Start with lowercase letter
-- No period at the end
-- Be concise but descriptive
+---
+
+## Universal Code Quality Rules
+
+Apply to all generated files and content:
+
+- **Be concise**: prefer focused solutions over verbose implementations
+- **DRY (Don’t Repeat Yourself)**: eliminate duplication across files and functions
+- **No boilerplate**: ensure every line of code or text serves a clear purpose
+- **Start simple**: implement the minimal viable solution first, then enhance
+- **Extract repetition**: create reusable abstractions for recurring patterns
+
+---
+
+## Commit Messages
+
+### Conventional Commits Format
+
+- **Format**: `type(scope): description`
+- **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+- **Rules**:
+
+  - Use imperative mood, start with lowercase, no trailing period
+  - Keep under 50 characters when possible
+
+### Staged Files Focus
+
+- Base messages only on staged changes (`git diff --staged`)
+- Describe what changed and why, not how
+- Specify scopes using component or module names (e.g., `auth`, `ui`, `api`)
 
 ### Examples
+
 ```
 feat(auth): add JWT token authentication
 fix(ui): resolve mobile navigation overflow
 docs(readme): update installation instructions
-style(components): format with prettier
+style(components): format with Prettier
 refactor(api): extract user service logic
 test(auth): add login flow unit tests
 chore(deps): update dependencies to latest versions
 ```
 
-### Context Analysis
-When generating commit messages, consider:
-- File types being changed (components, configs, tests, docs)
-- Number of files affected
-- Type of changes (additions, modifications, deletions)
-- Purpose or feature being implemented
+---
 
-### Staged Files Focus
-When user asks to commit staged (indexed) files:
-- Create commit message descriptions **only** about the staged files
-- Ignore unstaged changes in the working directory
-- Use git diff --staged to identify what's actually staged
-- Focus the commit message on the specific changes that will be committed
+## Code Generation Patterns
 
-### Preferred Style
-- Keep messages under 50 characters when possible
-- Be specific about what was changed
-- Focus on the "what" and "why", not the "how"
+### Component Architecture
+
+- Extract large components into focused subcomponents
+- Use composition over inheritance
+- Keep components under 200 lines when possible
+- Separate UI logic from business logic
+
+### API and Data Flow
+
+- Implement proper error handling and loading states
+- Follow established API and state-management patterns
+- Use standard loading states: `idle`, `loading`, `error`, `success`
+- Handle real-time updates according to the data source
+
+### Testing Strategy
+
+- Write unit tests for utility functions and API logic
+- Mock external dependencies appropriately
+- Test both success and error scenarios
+- Maintain coverage for critical business logic
+
+---
 
 ## Documentation Strategy
 
-### Always Consult README Files
-Before working with any directory or creating files, **always read the relevant README.md files first**:
-- `/README.md` - Project overview and setup
+- Always consult `README.md` before creating or modifying files
+- Keep `copilot-instructions.md` focused on behavioral guidelines
+- Avoid project-specific content; direct readers to the README
+- Use actionable examples with clear do’s and don’ts
+- Include anti-patterns marked with ❌ for contrast
 
-### README-First Approach
-- Each major directory has its own README.md explaining purpose and structure
-- README files are the authoritative source for directory-specific guidelines
-- When creating new directories, always add a README.md to explain their purpose
-- Keep README files current - they guide both humans and AI assistants
+---
 
-### Copilot Instructions Strategy
-- This file (`.github/copilot-instructions.md`) should contain only **behavioral strategies** and **work approaches**
-- Do NOT include project-specific content descriptions - those belong in README files
-- Focus on "how to work" rather than "what the project contains"
-- When project information is needed, direct users to consult the appropriate README files
-- Keep instructions timeless and reusable across different project states
+## Technology-Specific Guidelines
+
+- Place tech-specific rules in `.github/copilot-instructions-[technology].md`
+- Use filenames like `copilot-instructions-ts.md`, `copilot-instructions-react.md`, etc.
+- Discover available guides via:
+
+  ```
+  ls ./.github | grep "copilot-instructions-"
+  ```
+
+- Always consult the relevant guide for the specific technology or purpose
