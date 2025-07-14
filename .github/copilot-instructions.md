@@ -7,7 +7,6 @@
 
 - Quality Attributes
 - Universal Code Quality Rules
-- Commit Messages
 - Code Generation Patterns
 - Documentation Strategy
 - Technology-Specific Guidelines
@@ -34,37 +33,6 @@ Apply to all generated files and content:
 - **No boilerplate**: ensure every line of code or text serves a clear purpose
 - **Start simple**: implement the minimal viable solution first, then enhance
 - **Extract repetition**: create reusable abstractions for recurring patterns
-
----
-
-## Commit Messages
-
-### Conventional Commits Format
-
-- **Format**: `type(scope): description`
-- **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-- **Rules**:
-
-  - Use imperative mood, start with lowercase, no trailing period
-  - Keep under 50 characters when possible
-
-### Staged Files Focus
-
-- Base messages only on staged changes (`git diff --staged`)
-- Describe what changed and why, not how
-- Specify scopes using component or module names (e.g., `auth`, `ui`, `api`)
-
-### Examples
-
-```
-feat(auth): add JWT token authentication
-fix(ui): resolve mobile navigation overflow
-docs(readme): update installation instructions
-style(components): format with Prettier
-refactor(api): extract user service logic
-test(auth): add login flow unit tests
-chore(deps): update dependencies to latest versions
-```
 
 ---
 
