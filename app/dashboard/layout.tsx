@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import TopRibbon from "@/components/dashboard/TopRibbon";
-import RightHistory from "@/components/dashboard/RightHistory";
-import NavMenuMobile from "@/components/dashboard/NavMenuMobile";
+import History from "@/components/dashboard/History";
 import LeftNav from "@/components/dashboard/LeftNav";
+import NavMenuMobile from "@/components/dashboard/NavMenuMobile";
+import TopRibbon from "@/components/dashboard/TopRibbon";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
@@ -20,10 +20,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <LeftNav />
         </aside>
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-8 overflow-y-auto">{children}</main>
+        <main className="flex-1 p-4 md:p-8 overflow-y-auto">
+          {children}
+          <div className="lg:hidden p-6">
+            <History />
+          </div>
+        </main>
         {/* Right History Panel */}
         <aside className="hidden lg:block w-80 bg-white border-l p-4 overflow-y-auto">
-          <RightHistory />
+          <History />
         </aside>
       </div>
     </div>

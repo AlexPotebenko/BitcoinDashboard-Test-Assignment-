@@ -1,4 +1,32 @@
+import { Metadata } from "next";
+import { ReduxProvider } from "@/lib/store/ReduxProvider";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Bitcoin Dashboard",
+  description: "A dashboard for tracking Bitcoin metrics and analytics.",
+  robots: "index, follow",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "Bitcoin Dashboard",
+    description: "A dashboard for tracking Bitcoin metrics and analytics.",
+    type: "website",
+    images: ["/android-chrome-512x512.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bitcoin Dashboard",
+    description: "A dashboard for tracking Bitcoin metrics and analytics.",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -7,44 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <title>Bitcoin Dashboard</title>
-        <meta
-          name="description"
-          content="A dashboard for tracking Bitcoin metrics and analytics."
-        />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Bitcoin Dashboard" />
-        <meta
-          property="og:description"
-          content="A dashboard for tracking Bitcoin metrics and analytics."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/android-chrome-512x512.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bitcoin Dashboard" />
-        <meta name="twitter:description" content="A dashboard for tracking Bitcoin metrics and analytics." />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className={`antialiased`}>{children}</body>
+      <body className="antialiased">
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 }
