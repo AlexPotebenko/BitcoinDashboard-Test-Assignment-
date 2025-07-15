@@ -3,6 +3,14 @@
   Global Copilot behavioral guidelines for code quality, commits, and documentation.
 -->
 
+Apply to all generated files and content:
+
+- **Be concise**: prefer focused solutions over verbose implementations
+- **DRY (Don't Repeat Yourself)**: eliminate duplication across files and functions
+- **No boilerplate**: ensure every line of code or text serves a clear purpose
+- **Start simple**: implement the minimal viable solution first, then enhance
+- **Extract repetition**: create reusable abstractions for recurring patterns
+
 ## Contents
 
 - Quality Attributes
@@ -76,9 +84,8 @@ Apply to all generated files and content:
 - Place tech-specific rules in `.github/copilot-instructions-[technology].md`
 - Use filenames like `copilot-instructions-ts.md`, `copilot-instructions-react.md`, etc.
 - Discover available guides via:
-
-  ```
-  ls ./.github | grep "copilot-instructions-"
-  ```
-
 - Always consult the relevant guide for the specific technology or purpose
+
+```bash
+ls ./.github | grep "copilot-instructions-"
+```

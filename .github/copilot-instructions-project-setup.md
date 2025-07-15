@@ -1,8 +1,3 @@
-<!--
-  .github/copilot-instructions-project-setup.md
-  Project-specific setup and configuration guidelines for development workflow.
--->
-
 # Project Setup and Configuration Guidelines
 
 ## Package Manager
@@ -29,5 +24,3 @@ pnpm run <script-name>
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **State Management**: Redux Toolkit with RTK Query
 - **Testing**: Jest for unit tests, Cypress for E2E
-- **Package Manager**: pnpm with workspace support
-- **Build Tool**: Next.js with TypeScript compilation
