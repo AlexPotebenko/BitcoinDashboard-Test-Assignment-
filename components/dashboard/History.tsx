@@ -7,7 +7,7 @@ const staticHistory = [
   { action: "Withdrew $100", time: "2025-06-19 12:00" },
 ];
 
-export default function RightHistory() {
+export default function History() {
   return (
     <div>
       <h3 className="font-bold mb-2">History</h3>

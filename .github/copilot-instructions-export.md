@@ -16,6 +16,7 @@ export const deleteUserProfile = () => {
   /* ... */
 };
 
+
 // ✅ Good - Grouped exports
 const getUserProfile = () => {
   /* ... */
@@ -28,6 +29,11 @@ const deleteUserProfile = () => {
 };
 
 export { getUserProfile, updateUserProfile, deleteUserProfile };
+
+// ✅ Good - Single export const (when only one export is needed)
+export const getUserProfileOnce = () => {
+  /* ... */
+};
 
 // ✅ Good - Default export for single primary export
 const userApi = {

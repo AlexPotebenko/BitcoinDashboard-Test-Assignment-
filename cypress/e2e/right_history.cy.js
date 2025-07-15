@@ -1,6 +1,6 @@
 // cypress/e2e/right_history.cy.js
 
-describe('RightHistory panel', () => {
+describe('History panel', () => {
   beforeEach(() => {
     cy.viewport(1400, 900); // ensure desktop layout
     cy.visit('/dashboard');

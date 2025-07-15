@@ -3,9 +3,13 @@ import NavLink from "./NavLink";
 
 export default function NavMenuMobile() {
   return (
-    <nav className="flex gap-2 w-full p-2">
+    <nav className="flex gap-2 w-full">
       {NAV_LINKS.map((link) => (
-        <NavLink key={link.pathname} pathname={link.pathname} label={link.label} />
+        <NavLink
+          key={link.pathname}
+          pathname={link.pathname}
+          label={link.label}
+        />
       ))}
     </nav>
   );
