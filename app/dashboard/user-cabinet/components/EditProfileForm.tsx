@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { UserProfile } from "@/lib/api/mock-api/index";
 
 interface EditProfileFormProps {
@@ -20,40 +22,40 @@ export const EditProfileForm = ({
   onCancel,
 }: EditProfileFormProps) => {
   return (
-    <section className="bg-white rounded shadow p-4">
+    <section className="bg-card rounded-lg shadow-sm p-4 border border-border-default">
       <div className="flex justify-between items-center mb-2">
-        <h2 className="font-semibold">Edit Profile</h2>
-        <button
-          onClick={isEditing ? onSave : onEditToggle}
-          disabled={updateProfileLoading}
-          className={`px-3 py-1 rounded text-sm font-medium ${
-            isEditing
-              ? "bg-green-600 text-white hover:bg-green-700"
-              : "bg-blue-600 text-white hover:bg-blue-700"
-          } disabled:opacity-50`}
-        >
-          {updateProfileLoading ? "Saving..." : isEditing ? "Save" : "Edit"}
-        </button>
+        <h2 className="font-semibold text-card-foreground">Edit Profile</h2>
+        <div className="flex items-center space-x-2">
+          {isEditing && (
+            <Button variant="ghost" onClick={onCancel}>
+              Cancel
+            </Button>
+          )}
+          <Button
+            className="w-[90px]"
+            disabled={updateProfileLoading}
+            variant={isEditing ? "submit" : "secondary"}
+            onClick={isEditing ? onSave : onEditToggle}
+          >
+            {updateProfileLoading ? "Saving..." : isEditing ? "Save" : "Edit"}
+          </Button>
+        </div>
       </div>
-      <form className="space-y-2">
-        <input
-          className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          type="text"
+      <form className="flex flex-col space-y-2">
+        <Input
           value={editForm.name || ""}
           onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
           placeholder="Full Name"
           disabled={!isEditing}
         />
-        <input
-          className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          type="email"
+        <Input
           value={editForm.email || ""}
           onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
           placeholder="Email Address"
           disabled={!isEditing}
         />
         <select
-          className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="cursor-pointer"
           value={editForm.accountType || "Basic"}
           onChange={(e) =>
             setEditForm({
@@ -68,14 +70,6 @@ export const EditProfileForm = ({
           <option value="VIP">VIP Plan</option>
         </select>
       </form>
-      {isEditing && (
-        <button
-          onClick={onCancel}
-          className="mt-2 px-3 py-1 rounded text-sm text-gray-600 hover:text-gray-800"
-        >
-          Cancel
-        </button>
-      )}
     </section>
   );
 };

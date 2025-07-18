@@ -10,14 +10,14 @@ const staticHistory = [
 export default function History() {
   return (
     <div>
-      <h3 className="font-bold mb-2">History</h3>
+      <h3 className="font-bold mb-2 text-card-foreground">History</h3>
       <Separator className="mb-2" />
       <ul className="space-y-2">
         {staticHistory.map((item, i) => (
           <li key={i} className="text-sm">
-            <span className="font-medium">{item.action}</span>
+            <span className="font-medium text-foreground">{item.action}</span>
             <br />
-            <span className="text-xs text-gray-500">{item.time}</span>
+            <span className="text-xs text-muted-foreground">{item.time}</span>
           </li>
         ))}
       </ul>

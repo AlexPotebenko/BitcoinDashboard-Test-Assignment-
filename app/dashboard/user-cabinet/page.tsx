@@ -26,9 +26,9 @@ export default function UserCabinetPage() {
   if (hasError) {
     return (
       <div className="max-w-2xl mx-auto p-6">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h2 className="text-red-800 font-semibold">Error Loading Profile</h2>
-          <p className="text-red-600 text-sm mt-1">
+        <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
+          <h2 className="text-destructive font-semibold">Error Loading Profile</h2>
+          <p className="text-destructive/80 text-sm mt-1">
             Failed to load user profile. Please refresh the page.
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function UserCabinetPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-4 md:space-y-8">
+    <div className="max-w-2xl mx-auto flex flex-col gap-adaptive-lg">
       {notifications?.show && (
         <Notification
           type={notifications.type}
@@ -46,7 +46,7 @@ export default function UserCabinetPage() {
         />
       )}
 
-      <h1 className="text-2xl font-bold mb-4">User Cabinet</h1>
+      <h1 className="text-2xl font-bold mb-4 text-foreground">User Cabinet</h1>
 
       <ProfileSection profile={queries.profile.data} />
 

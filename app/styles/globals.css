@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./colors.css";
+@import "./adaptive.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Enhanced input and select styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="checkbox"],
+  select,
+  textarea {
+    @apply px-3 py-2 bg-background border border-border-default focus:border-bitcoin focus:ring-2 focus:ring-bitcoin/20 transition-colors rounded-md;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply border-bitcoin outline-none ring-2 ring-bitcoin/30;
+  }
+}

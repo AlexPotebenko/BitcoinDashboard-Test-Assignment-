@@ -59,8 +59,8 @@ export const NotificationSettingsSection = ({
   ];
 
   return (
-    <section className="bg-white rounded shadow p-4">
-      <h2 className="font-semibold mb-2">Notification Settings</h2>
+    <section className="bg-card rounded-lg shadow-sm p-4 border border-border-default">
+      <h2 className="font-semibold mb-2 text-card-foreground">Notification Settings</h2>
       {updateSettingsLoading && (
         <div className="mb-2">
           <LoadingState message="Updating settings..." size="sm" />
@@ -68,7 +68,7 @@ export const NotificationSettingsSection = ({
       )}
       <div className="flex flex-col gap-3">
         {settings.map(({ key, label }) => (
-          <label key={key} className="flex items-center gap-2 cursor-pointer">
+          <label key={key} className="flex items-center gap-2 cursor-pointer text-foreground">
             <input
               type="checkbox"
               checked={
@@ -78,7 +78,7 @@ export const NotificationSettingsSection = ({
               onChange={(e) =>
                 handleNotificationSettingChange(key, e.target.checked)
               }
-              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              className="rounded border-border-default text-primary focus:ring-bitcoin/30 focus:ring-2"
             />
             <span>{label}</span>
           </label>

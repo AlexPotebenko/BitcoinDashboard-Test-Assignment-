@@ -1,0 +1,146 @@
+@theme inline {
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Radius scaling system */
+  --radius-scale: 0.75; /* Universal multiplier that adapts */
+  --radius-mobile: 0.75; /* 25% smaller on mobile */
+  --radius-tablet: 0.9; /* 12.5% smaller on tablet */
+  --radius-desktop: 1.2; /* Base size on desktop */
+
+  /* Custom adaptive spacing system */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+
+  /* Responsive multipliers */
+  --space-scale: 0.75; /* Universal multiplier that adapts */
+  --space-mobile: 0.75; /* 25% smaller on mobile */
+  --space-tablet: 0.9; /* 12.5% smaller on tablet */
+  --space-desktop: 1.2; /* Base size on desktop */
+
+  /* Adaptive typography scale */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+}
+
+@layer base {
+  /* Responsive spacing utilities */
+  .gap-adaptive-xs {
+    gap: calc(var(--space-xs) * var(--space-scale));
+  }
+  .gap-adaptive-sm {
+    gap: calc(var(--space-sm) * var(--space-scale));
+  }
+  .gap-adaptive-md {
+    gap: calc(var(--space-md) * var(--space-scale));
+  }
+  .gap-adaptive-lg {
+    gap: calc(var(--space-lg) * var(--space-scale));
+  }
+  .gap-adaptive-xl {
+    gap: calc(var(--space-xl) * var(--space-scale));
+  }
+
+  .p-adaptive-xs {
+    padding: calc(var(--space-xs) * var(--space-scale));
+  }
+  .p-adaptive-sm {
+    padding: calc(var(--space-sm) * var(--space-scale));
+  }
+  .p-adaptive-md {
+    padding: calc(var(--space-md) * var(--space-scale));
+  }
+  .p-adaptive-lg {
+    padding: calc(var(--space-lg) * var(--space-scale));
+  }
+  .p-adaptive-xl {
+    padding: calc(var(--space-xl) * var(--space-scale));
+  }
+
+  .m-adaptive-xs {
+    margin: calc(var(--space-xs) * var(--space-scale));
+  }
+  .m-adaptive-sm {
+    margin: calc(var(--space-sm) * var(--space-scale));
+  }
+  .m-adaptive-md {
+    margin: calc(var(--space-md) * var(--space-scale));
+  }
+  .m-adaptive-lg {
+    margin: calc(var(--space-lg) * var(--space-scale));
+  }
+  .m-adaptive-xl {
+    margin: calc(var(--space-xl) * var(--space-scale));
+  }
+
+  .gap-adaptive {
+    gap: calc(var(--space-sm) * var(--space-scale));
+  }
+  .p-adaptive {
+    padding: calc(var(--space-md) * var(--space-scale));
+  }
+  .m-adaptive {
+    margin: calc(var(--space-md) * var(--space-scale));
+  }
+
+  /* Typography utilities */
+  .font-size-adaptive-xs {
+    font-size: calc(var(--font-size-xs) * var(--font-size-scale, 1));
+  }
+  .font-size-adaptive-sm {
+    font-size: calc(var(--font-size-sm) * var(--font-size-scale, 1));
+  }
+  .font-size-adaptive-base {
+    font-size: calc(var(--font-size-base) * var(--font-size-scale, 1));
+  }
+  .font-size-adaptive-lg {
+    font-size: calc(var(--font-size-lg) * var(--font-size-scale, 1));
+  }
+  .font-size-adaptive-xl {
+    font-size: calc(var(--font-size-xl) * var(--font-size-scale, 1));
+  }
+  .font-size-adaptive-2xl {
+    font-size: calc(var(--font-size-2xl) * var(--font-size-scale, 1));
+  }
+
+  /* Adaptive radius utilities */
+  .rounded-adaptive-sm {
+    border-radius: calc(var(--radius-sm) * var(--radius-scale));
+  }
+  .rounded-adaptive-md {
+    border-radius: calc(var(--radius-md) * var(--radius-scale));
+  }
+  .rounded-adaptive-lg {
+    border-radius: calc(var(--radius-lg) * var(--radius-scale));
+  }
+  .rounded-adaptive-xl {
+    border-radius: calc(var(--radius-xl) * var(--radius-scale));
+  }
+
+  /* Tablet breakpoint */
+  @media (min-width: 768px) {
+    :root {
+      --space-scale: var(--space-tablet);
+      --radius-scale: var(--radius-tablet);
+    }
+  }
+
+  /* Desktop breakpoint */
+  @media (min-width: 1024px) {
+    :root {
+      --space-scale: var(--space-desktop);
+      --radius-scale: var(--radius-desktop);
+    }
+  }
+}

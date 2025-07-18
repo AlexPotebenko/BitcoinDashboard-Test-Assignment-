@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { ReduxProvider } from "@/lib/store/ReduxProvider";
-import "./globals.css";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Bitcoin Dashboard",

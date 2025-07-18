@@ -3,14 +3,14 @@ export const formatDate = (dateString: string) => {
 };
 
 export const getStatusColor = (status: string) => {
-  return status === "Success" ? "text-green-600" : "text-red-600";
+  return status === "Success" ? "text-success" : "text-destructive";
 };
 
 export const getPlanColor = (plan: string) => {
   const colors = {
-    Basic: "bg-gray-100 text-gray-700",
-    Premium: "bg-green-100 text-green-700",
-    VIP: "bg-purple-100 text-purple-700",
+    Basic: "bg-plan-basic text-plan-basic-foreground",
+    Premium: "bg-plan-premium text-plan-premium-foreground",
+    VIP: "bg-plan-vip text-plan-vip-foreground",
   };
-  return colors[plan as keyof typeof colors] || "bg-gray-100 text-gray-700";
+  return colors[plan as keyof typeof colors] || "bg-plan-basic text-plan-basic-foreground";
 };
