@@ -14,7 +14,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
         alt="User Avatar"
         width={64}
         height={64}
-        className="rounded-full border-2 border-gray-200 dark:border-gray-600"
+        className="rounded-full border-2 border-border-default"
       />
       <div>
         <div className="font-semibold text-card-foreground">{profile?.name}</div>

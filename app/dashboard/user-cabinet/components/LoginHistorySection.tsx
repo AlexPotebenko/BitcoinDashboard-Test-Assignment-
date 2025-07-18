@@ -16,7 +16,7 @@ export function LoginHistorySection({
           {loginHistory.map((entry) => (
             <li
               key={entry.id}
-              className="flex justify-between items-center py-1 border-b border-gray-200 dark:border-gray-700 last:border-b-0"
+              className="flex justify-between items-center py-1 border-b border-border-default last:border-b-0"
             >
               <div>
                 <span className="font-medium text-foreground">

@@ -7,7 +7,7 @@
 
 @layer base {
   * {
-    @apply border-gray-200 dark:border-gray-700;
+    @apply border-border-default;
   }
   body {
     @apply bg-background text-foreground;
