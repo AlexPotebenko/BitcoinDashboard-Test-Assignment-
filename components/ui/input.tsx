@@ -1,8 +1,12 @@
 import * as React from "react";
 
-function Input({ className, ...props }: React.ComponentProps<"input">) {
+function Input({
+  className,
+  type = "text",
+  ...props
+}: React.ComponentProps<"input">) {
   return (
-    <input type="text" data-slot="input" className={className} {...props} />
+    <input type={type} data-slot="input" className={className} {...props} />
   );
 }
 
